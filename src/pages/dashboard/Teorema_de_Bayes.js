@@ -1,13 +1,13 @@
 
 import { Componentes } from '@/pages/dashboard'
 //export function BarraNavegacion2
-export default function Tendencia_central() {
+export default function Teorema_de_Bayes() {
     return (
         <div className=" min-h-screen bg-blue-gray-50/50">
-            <Componentes id={0} />
+            <Componentes id={5} />
         </div>
     );
 }
-Tendencia_central.displayName = "/src/layout/dashboard.jsx";
+Teorema_de_Bayes.displayName = "/src/layout/dashboard.jsx";
 ///src/layout/dashboard.jsx
 //export default Home;

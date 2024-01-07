@@ -53,7 +53,7 @@ export function Navbar_app({ user_name, titulo }) {
       color={fixedNavbar ? "white" : "transparent"}
       className={`rounded-xl transition-all ${
         fixedNavbar
-          ? "sticky top-4 z-40 py-3 shadow-lg shadow-pink-300 bg-white border-none"
+          ? "sticky top-4 z-40 py-3 shadow-lg shadow-pink-50 bg-white border-none"
           : "px-0 py-1"
       }`}
       fullWidth
@@ -70,7 +70,7 @@ export function Navbar_app({ user_name, titulo }) {
         </div>
         <div className="flex items-center">
           <div className="">
-            <div className="h-auto bg-white flex mt-1 cursor-pointer text-center rounded-xl mx-auto w-full shadow-2xl hover:shadow-purple-700">
+            <div className="h-auto bg-pink-50 flex mt-1 cursor-pointer text-center rounded-xl mx-auto w-full shadow-2xl hover:shadow-purple-700">
               <div className="flex items-center">
                 <Tooltip content={nombres}>
                   <img

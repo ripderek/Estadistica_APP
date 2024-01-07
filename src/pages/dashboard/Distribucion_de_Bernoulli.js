@@ -1,13 +1,13 @@
 
 import { Componentes } from '@/pages/dashboard'
 //export function BarraNavegacion2
-export default function Tendencia_central() {
+export default function Distribucion_de_Bernoulli() {
     return (
         <div className=" min-h-screen bg-blue-gray-50/50">
-            <Componentes id={0} />
+            <Componentes id={1} />
         </div>
     );
 }
-Tendencia_central.displayName = "/src/layout/dashboard.jsx";
+Distribucion_de_Bernoulli.displayName = "/src/layout/dashboard.jsx";
 ///src/layout/dashboard.jsx
 //export default Home;

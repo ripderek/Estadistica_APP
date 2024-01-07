@@ -15,14 +15,13 @@ import {
   setFixedNavbar,
 } from "@/context";
 import React from "react";
-//welcome.json
-import Lottie from "lottie-react";
-import anim from "../../../public/anim/welcome.json";
-//export function BarraNavegacion2
-export default function Home() {
+import Cookies from "universal-cookie";
+import { useState, useEffect } from "react";
+import { Conceptos } from "@/pages/Conceptos";
+
+export default function Componentes({ id }) {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavType, sidenavColor } = controller;
-
   return (
     <div className=" min-h-screen bg-blue-gray-50/50">
       <BarraNavegacion2
@@ -43,14 +42,8 @@ export default function Home() {
         >
           <Cog6ToothIcon className="h-5 w-5" />
         </IconButton>
-        <div>
-          {" "}
-          <Lottie animationData={anim} className="h-auto" />
-        </div>
+        <Conceptos id_seccion={id} />
       </div>
     </div>
   );
 }
-Home.displayName = "/src/layout/dashboard.jsx";
-///src/layout/dashboard.jsx
-//export default Home;

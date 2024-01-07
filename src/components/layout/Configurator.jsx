@@ -14,6 +14,7 @@ import {
   setFixedNavbar,
 } from "@/context";
 
+/*
 function formatNumber(number, decPlaces) {
   decPlaces = Math.pow(10, decPlaces);
 
@@ -38,6 +39,7 @@ function formatNumber(number, decPlaces) {
 
   return number;
 }
+*/
 import { useState, useEffect } from "react";
 
 export function Configurator() {
@@ -54,14 +56,6 @@ export function Configurator() {
     red: "from-red-400 to-red-600",
     pink: "from-pink-400 to-pink-600",
   };
-
-  useEffect(() => {
-    const stars = fetch(
-      "https://api.github.com/repos/creativetimofficial/material-tailwind-dashboard-react"
-    )
-      .then((response) => response.json())
-      .then((data) => setStars(formatNumber(data.stargazers_count, 1)));
-  }, []);
 
   return (
     <aside
@@ -149,10 +143,7 @@ export function Configurator() {
           </div>
           <hr />
           <div className="my-8 flex flex-col gap-4">
-            <a
-              href="https://www.creative-tim.com/product/material-tailwind-dashboard-react?rel=mtdr"
-              target="_black"
-            >
+            <a target="_black">
               <Button variant="gradient" fullWidth>
                 Boton
               </Button>
