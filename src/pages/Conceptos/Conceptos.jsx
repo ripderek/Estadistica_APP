@@ -21,14 +21,19 @@ import {
   IconButton,
   Tooltip,
   Collapse,
+  Checkbox,
 } from "@material-tailwind/react";
 import { Dialog_Error, Loader, Notification } from "@/widgets"; //Importar el componente
 import { tasks } from "../../Data/Conceptos";
-
+import { Calc_tendria_central } from "@/pages/Calc";
 //const TABLE_HEAD = ["Member", "Function", "Status", "Employed", ""];
 import { useEffect, useState } from "react";
 export default function Conceptos({ id_seccion }) {
-  const [concepto, setConcepto] = useState({ definiciones: [] });
+  const [concepto, setConcepto] = useState({
+    definiciones: [],
+    links_youtube: [],
+    links_pdf: [],
+  });
   const [load, setLoader] = useState(false);
   //Conceptos
   useEffect(() => {
@@ -58,7 +63,25 @@ export default function Conceptos({ id_seccion }) {
 
   const [openRecursos, setOpenRecursos] = useState(false);
   const toggleOpenRecursos = () => setOpenRecursos((cur) => !cur);
+  //collapse para abrir la calculadora xdxdxd skere modo diablo
+  const [openCalculadora, setOpenCalculadora] = useState(false);
+  const toggleOpenCalculadora = () => setOpenCalculadora((cur) => !cur);
 
+  //HACER UN SWITCH PARA RENDERIZAR UN COMPONENTE DE CALCULADORA DEPENDIENDO DEL ID QUE RECIBE ESTE COMPONENTE
+  //calc_tendria_central
+  const renderComponent = () => {
+    switch (id_seccion) {
+      case 0:
+        return (
+          <Calc_tendria_central
+            idseccion={id_seccion}
+            tituloCal={concepto.title}
+          />
+        );
+      default:
+        return null; // Otra opción por defecto si ninguna condición es verdadera
+    }
+  };
   return (
     <Card className="h-full w-full mt-7">
       <>
@@ -108,28 +131,10 @@ export default function Conceptos({ id_seccion }) {
                 </div>
 
                 {concepto.description2}
-                {/* 
-              {concepto.description}
-              <div className="p-6">
-                <Typography variant="lead" color="deep-purple">
-                  Media
-                </Typography>
-                <li>{concepto.media?.definition}</li>
-                <Typography variant="lead" color="deep-purple">
-                  Mediana
-                </Typography>
-                <li>{concepto.mediana?.definition}</li>
-                <Typography variant="lead" color="deep-purple">
-                  Moda
-                </Typography>
-                <li>{concepto.moda?.definition}</li>
-              </div>
-              {concepto.description2}
-              */}
               </CardBody>
             </Card>
           </Collapse>
-          {/*ENLACES EXTERNOS*/}
+          {/*ENLACES EXTERNOS DE RECURSOS*/}
           <Button
             onClick={toggleOpenRecursos}
             variant="outlined"
@@ -140,7 +145,97 @@ export default function Conceptos({ id_seccion }) {
           </Button>
           <Collapse open={openRecursos}>
             <Card className="my-4 mx-auto w-full">
-              <CardBody>AQUI CARGAN LOS RECURSOS</CardBody>
+              <CardBody>
+                {/* PARA LOS VIDEOS*/}
+                <Typography variant="h3" color="deep-purple">
+                  Videos
+                </Typography>
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-1 p-2">
+                  {concepto.links_youtube &&
+                    concepto.links_youtube.length !== 0 &&
+                    concepto.links_youtube.map((item, itemIndex) => (
+                      <Tooltip content={item.video}>
+                        <div
+                          key={itemIndex}
+                          className="bg-pink-50 rounded-2xl hover:shadow-purple-900 shadow-2xl cursor-pointer"
+                        >
+                          {/* 
+                          <Typography variant="lead" color="deep-purple">
+                            {item.video}
+                          </Typography>
+                          */}
+                          <a href={item.link}>
+                            <img
+                              src={item.miniatura}
+                              alt=""
+                              className="h-auto"
+                            />
+                          </a>
+                          {/*
+                          <li>{item.miniatura}</li>
+                          <li>{item.link}</li>
+                           */}
+                        </div>
+                      </Tooltip>
+                    ))}
+                </div>
+                {/* PARA LOS PDF*/}
+                <Typography variant="h3" color="deep-purple" className="mt-6">
+                  Informes, libros y articulos
+                </Typography>
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-1 p-2">
+                  {concepto.links_pdf &&
+                    concepto.links_pdf.length !== 0 &&
+                    concepto.links_pdf.map((item, itemIndex) => (
+                      <Tooltip content={item.pdf}>
+                        <div
+                          key={itemIndex}
+                          className="bg-pink-50 rounded-2xl hover:shadow-purple-900 shadow-2xl cursor-pointer"
+                        >
+                          {/* 
+                          <Typography variant="lead" color="deep-purple">
+                            {item.video}
+                          </Typography>
+                          */}
+                          <a href={item.link}>
+                            <img
+                              src={item.miniatura}
+                              alt=""
+                              className="h-auto"
+                            />
+                          </a>
+                          {/*
+                          <li>{item.miniatura}</li>
+                          <li>{item.link}</li>
+                           */}
+                        </div>
+                      </Tooltip>
+                    ))}
+                </div>
+              </CardBody>
+            </Card>
+          </Collapse>
+          {/* CALCULADORA  DEPENDIENDO DEL ID SE RENDERIZA LA ADECUADA SKERE MODO DIABLO*/}
+          <Button
+            onClick={toggleOpenCalculadora}
+            variant="gradient"
+            color="deep-purple"
+            className="w-full mt-3"
+          >
+            CALCULADORA
+          </Button>
+          <Collapse open={openCalculadora}>
+            <Card className="my-4 mx-auto w-full h-full">
+              <CardBody>
+                {/*
+          a pesar del nombre el componente es igual para todos xd 
+           */}
+                <Calc_tendria_central
+                  idseccion={id_seccion}
+                  tituloCal={concepto.title}
+                />
+                {renderComponent()}
+              </CardBody>
             </Card>
           </Collapse>
         </CardBody>
