@@ -53,7 +53,7 @@ export function Navbar_app({ user_name, titulo }) {
       color={fixedNavbar ? "white" : "transparent"}
       className={`rounded-xl transition-all ${
         fixedNavbar
-          ? "sticky top-4 z-40 py-3 shadow-lg shadow-pink-50 bg-white border-none"
+          ? "sticky top-4 z-40 py-3 shadow-lg shadow-pink-100 bg-purple-100 border-none"
           : "px-0 py-1"
       }`}
       fullWidth

@@ -27,6 +27,7 @@ export default function Resultados({ openT, handleOpen, datos, id, titulo }) {
     }
   }, []);
   const [resultad, setresult] = useState([]);
+  const [decimalesMedia, setDecimalesMedia] = useState(2);
   // Función para obtener los datos de manera asíncrona
   const ObtenerRespuestas = async () => {
     try {
@@ -56,13 +57,49 @@ export default function Resultados({ openT, handleOpen, datos, id, titulo }) {
       alert("Error al calcular estadísticas:", error.message);
       console.error("Error al calcular estadísticas:", error.message);
     }
+  
   };
+  const copyToClipboard = () => {
+    let resultText = resultad.map(({ name, value }) => `${name}: ${value}`).join('\n');
+    navigator.clipboard.writeText(resultText)
+      .then(() => {
+        alert('Resultados copiados al portapapeles!');
+      })
+      .catch(err => {
+        console.error('Error al copiar al portapapeles:', err);
+        alert('Error al copiar al portapapeles.');
+      });
+  };
+  const cambiarDecimalesMedia = (nuevosDecimales) => {
+    setDecimalesMedia(nuevosDecimales);
+  };
+  const formatearMedia = (valor) => {
+    return Number(valor).toFixed(decimalesMedia);
+  };
+  
 
   return (
     <>
       <Dialog open={openT} handler={handleOpen}>
         <DialogHeader>Resultados </DialogHeader>
         <DialogBody className="text-center mx-auto">
+        <div className="flex justify-center my-2">
+    <Button
+      variant="gradient"
+      color="blue"
+      onClick={() => cambiarDecimalesMedia(decimalesMedia + 1)}
+    >
+      Aumentar Decimales
+    </Button>
+    <div className="mx-2"></div>
+    <Button
+      variant="gradient"
+      color="blue"
+      onClick={() => cambiarDecimalesMedia(Math.max(0, decimalesMedia - 1))}
+    >
+      Disminuir Decimales
+    </Button>
+  </div>
           <div className="mx-auto items-center text-center">
             <div>Resultados de {titulo}</div>
             <div className="mx-auto">
@@ -100,7 +137,7 @@ export default function Resultados({ openT, handleOpen, datos, id, titulo }) {
                         color="blue-gray"
                         className="font-normal"
                       >
-                        {value}
+                         {name === "Media" ? formatearMedia(value) : value}
                       </Typography>
                     </td>
                   </tr>
@@ -110,10 +147,18 @@ export default function Resultados({ openT, handleOpen, datos, id, titulo }) {
           </div>
         </DialogBody>
         <DialogFooter>
-          <Button variant="gradient" color="purple" onClick={handleOpen}>
-            <span>Cerrar</span>
-          </Button>
-        </DialogFooter>
+  <Button variant="gradient" color="green" onClick={copyToClipboard}>
+    <span>Copiar Resultados</span>
+  </Button>
+  <div className="mx-2"> {/* Espaciador entre los botones */}
+    {/* Este div actúa como un espaciador */}
+  </div>
+  <Button variant="gradient" color="purple" onClick={handleOpen}>
+    <span>Cerrar</span>
+  </Button>
+</DialogFooter>
+
+
       </Dialog>
     </>
   );

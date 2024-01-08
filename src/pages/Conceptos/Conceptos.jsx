@@ -29,6 +29,9 @@ import {
   Calc_tendria_central,
   Calc_Bernoulli,
   Calc_Poisson,
+  Calc_Binomial,
+  Calc_Normal,
+  Calc_Bayes
 } from "@/pages/Calc";
 //const TABLE_HEAD = ["Member", "Function", "Status", "Employed", ""];
 import { useEffect, useState } from "react";
@@ -91,6 +94,18 @@ export default function Conceptos({ id_seccion }) {
       case 2:
         return (
           <Calc_Poisson idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+        case 3:
+        return (
+          <Calc_Binomial idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+        case 4:
+        return (
+          <Calc_Normal idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+        case 5:
+        return (
+          <Calc_Bayes idseccion={id_seccion} tituloCal={concepto.title} />
         );
       default:
         return null; // Otra opción por defecto si ninguna condición es verdadera

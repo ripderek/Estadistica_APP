@@ -25,6 +25,7 @@ export default function Result_Poisson({
   const data = [
     { numeroEventos: numeroEventos, probabilidad: probabilidadExito },
   ];
+  const [decimales, setDecimales] = useState(10); 
 
   const calcularProbabilidad = async () => {
     try {
@@ -54,11 +55,43 @@ export default function Result_Poisson({
       console.log(error);
     }
   };
+  const copyToClipboard = () => {
+    const resultText = `Tasa Media: ${tasaMedia}\nNúmero de Eventos: ${numeroEventos}\nProbabilidad de Éxito: ${probabilidadExito}`;
+    navigator.clipboard.writeText(resultText)
+      .then(() => {
+        alert('Resultados copiados al portapapeles!');
+      })
+      .catch(err => {
+        console.error('Error al copiar al portapapeles:', err);
+        alert('Error al copiar al portapapeles.');
+      });
+  };
+  const formatearNumero = (numero) => {
+    return Number(numero).toFixed(decimales);
+  };
+  
   return (
     <>
       <Dialog open={openT} handler={handleOpen}>
         <DialogHeader>Resultados </DialogHeader>
         <DialogBody className="text-center mx-auto">
+        <div className="flex justify-center my-2">
+  <Button
+    variant="gradient"
+    color="blue"
+    onClick={() => setDecimales(decimales + 1)}
+  >
+    Aumentar Decimales
+  </Button>
+  <div className="mx-2"></div> {/* Espaciador entre los botones */}
+  <Button
+    variant="gradient"
+    color="blue"
+    onClick={() => setDecimales(Math.max(0, decimales - 1))}
+  >
+    Disminuir Decimales
+  </Button>
+</div>
           <div className="mx-auto items-center text-center">
             <div>Resultados de {titulo}</div>
             Tasa Media: {tasaMedia} Numero de Eventos:{numeroEventos}
@@ -100,14 +133,19 @@ export default function Result_Poisson({
             </table>
              */}
           </div>
-          Resultado: {probabilidadExito}
+          <div>Resultado: {formatearNumero(probabilidadExito)}</div>
           <div className="mx-auto"></div>
         </DialogBody>
         <DialogFooter>
+          <Button variant="gradient" color="green" onClick={copyToClipboard}>
+            <span>Copiar Resultados</span>
+          </Button>
+          <div className="mx-2"></div> {/* Espaciador entre los botones */}
           <Button variant="gradient" color="purple" onClick={handleOpen}>
             <span>Cerrar</span>
           </Button>
         </DialogFooter>
+
       </Dialog>
     </>
   );

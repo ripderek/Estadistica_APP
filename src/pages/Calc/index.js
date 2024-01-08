@@ -7,5 +7,6 @@ export { default as Calc_Poisson } from '@/pages/Calc/Calc_Poisson'
 export { default as Calc_Binomial } from '@/pages/Calc/Calc_Binomial'
 export { default as Result_Bernoulli } from '@/pages/Calc/Result_Bernoulli'
 export { default as Result_Poisson } from '@/pages/Calc/Result_Poisson'
+export {default as Result_Binomial} from '@/pages/Calc/Result_Binomial'
 
 ///Result_Poisson.
