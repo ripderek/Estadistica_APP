@@ -17,47 +17,48 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-
-export default function Resultados({ openT, handleOpen, datos, id, titulo }) {
-  //con un useEffect cargar los resultados segun el id de la calculadora que se desea usar
+export default function Result_Bernoulli({
+  openT,
+  handleOpen,
+  id,
+  titulo,
+  numero,
+  p,
+}) {
   useEffect(() => {
-    //ObtenerRespuestas();
-    if (datos !== undefined) {
-      ObtenerRespuestas();
-    }
+    calcularProbabilidad();
   }, []);
-  const [resultad, setresult] = useState([]);
-  // Función para obtener los datos de manera asíncrona
-  const ObtenerRespuestas = async () => {
+  const [probabilidadExito, setProbabilidadExito] = useState(null);
+  const data = [
+    { name: "Éxito", probabilidad: probabilidadExito },
+    { name: "Fracaso", probabilidad: 1 - probabilidadExito },
+  ];
+
+  const calcularProbabilidad = async () => {
     try {
-      const response = await fetch("/api/tendencia-central", {
+      const parsedP = parseFloat(p);
+      const parsedNumero = parseFloat(numero);
+
+      const response = await fetch("/api/bernoulli", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ datos }),
+        body: JSON.stringify({ p: parsedP, numero: parsedNumero }),
       });
 
-      if (!response.ok) {
-        throw new Error("Error al calcular estadísticas. xd");
-      }
-
       const data = await response.json();
-      // setDatos([...datos, { id: datos.length, num: parseFloat(numero1) }]);
-      const newData = [
-        { name: "Media", value: data.Media },
-        { name: "Mediana", value: data.Mediana },
-        { name: "Moda", value: data.Moda },
-      ];
-      setresult(newData);
-      //setresult(data || {});
-      console.log("Estadísticas:", data);
+      setProbabilidadExito(data.probabilidadExito);
+      //console.log(data);
     } catch (error) {
-      alert("Error al calcular estadísticas:", error.message);
-      console.error("Error al calcular estadísticas:", error.message);
+      alert("Error");
+      console.error(
+        "Error al calcular la probabilidad de éxito 2:",
+        error.message
+      );
+      console.log(error);
     }
   };
-
   return (
     <>
       <Dialog open={openT} handler={handleOpen}>
@@ -65,22 +66,10 @@ export default function Resultados({ openT, handleOpen, datos, id, titulo }) {
         <DialogBody className="text-center mx-auto">
           <div className="mx-auto items-center text-center">
             <div>Resultados de {titulo}</div>
-            <div className="mx-auto">
-              <LineChart
-                width={400}
-                height={300}
-                data={resultad}
-                className="mx-auto"
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="value" stroke="#8884d8" />
-              </LineChart>
-            </div>
+            Probabilidad: {p} Numero:{numero}
+            <div className="mx-auto">{/*GRAFICA */}</div>
             {/* HACER UNA TABLA PARA QUE SE VENA LOS RESULTADOS EN FORMA DE TABLA XD */}
+            {/*
             <table className="w-auto mx-auto min-w-max table-auto text-left">
               <tbody>
                 {resultad.map(({ name, value }, index) => (
@@ -107,6 +96,18 @@ export default function Resultados({ openT, handleOpen, datos, id, titulo }) {
                 ))}
               </tbody>
             </table>
+             */}
+          </div>
+          Resultado: {probabilidadExito}
+          <div className="mx-auto">
+            <LineChart width={400} height={300} data={data} className="mx-auto">
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="probabilidad" stroke="#8884d8" />
+            </LineChart>
           </div>
         </DialogBody>
         <DialogFooter>

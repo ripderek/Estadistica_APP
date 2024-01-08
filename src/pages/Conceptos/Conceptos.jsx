@@ -25,7 +25,11 @@ import {
 } from "@material-tailwind/react";
 import { Dialog_Error, Loader, Notification } from "@/widgets"; //Importar el componente
 import { tasks } from "../../Data/Conceptos";
-import { Calc_tendria_central } from "@/pages/Calc";
+import {
+  Calc_tendria_central,
+  Calc_Bernoulli,
+  Calc_Poisson,
+} from "@/pages/Calc";
 //const TABLE_HEAD = ["Member", "Function", "Status", "Employed", ""];
 import { useEffect, useState } from "react";
 export default function Conceptos({ id_seccion }) {
@@ -77,6 +81,16 @@ export default function Conceptos({ id_seccion }) {
             idseccion={id_seccion}
             tituloCal={concepto.title}
           />
+        );
+      //Calc_Bernoulli
+      case 1:
+        return (
+          <Calc_Bernoulli idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+      //Calc_Poisson
+      case 2:
+        return (
+          <Calc_Poisson idseccion={id_seccion} tituloCal={concepto.title} />
         );
       default:
         return null; // Otra opción por defecto si ninguna condición es verdadera
@@ -229,11 +243,11 @@ export default function Conceptos({ id_seccion }) {
               <CardBody>
                 {/*
           a pesar del nombre el componente es igual para todos xd 
-           */}
-                <Calc_tendria_central
+          <Calc_tendria_central
                   idseccion={id_seccion}
                   tituloCal={concepto.title}
                 />
+           */}
                 {renderComponent()}
               </CardBody>
             </Card>
