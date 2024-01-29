@@ -26,6 +26,12 @@ export const routes = [
         pages: [
             {
                 icon: <ChartBarSquareIcon {...icon} />,
+                name: "Tabla de Frecuencia",
+                path: "/Frecuencia",
+                //element: <Home />,
+            },
+            {
+                icon: <ChartBarSquareIcon {...icon} />,
                 name: "Tendencia central",
                 path: "/Tendencia_central",
                 //element: <Home />,

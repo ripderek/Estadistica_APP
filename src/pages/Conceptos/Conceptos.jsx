@@ -24,7 +24,19 @@ import {
 } from "@material-tailwind/react";
 import { Dialog_Error, Loader, Notification } from "@/widgets"; //Importar el componente
 import { tasks } from "../../Data/Conceptos";
+<<<<<<< Updated upstream
 
+=======
+import {
+  Calc_tendria_central,
+  Calc_Bernoulli,
+  Calc_Poisson,
+  Calc_Binomial,
+  Calc_Normal,
+  Calc_Bayes,
+  Frecuencia
+} from "@/pages/Calc";
+>>>>>>> Stashed changes
 //const TABLE_HEAD = ["Member", "Function", "Status", "Employed", ""];
 import { useEffect, useState } from "react";
 export default function Conceptos({ id_seccion }) {
@@ -59,6 +71,50 @@ export default function Conceptos({ id_seccion }) {
   const [openRecursos, setOpenRecursos] = useState(false);
   const toggleOpenRecursos = () => setOpenRecursos((cur) => !cur);
 
+<<<<<<< Updated upstream
+=======
+  //HACER UN SWITCH PARA RENDERIZAR UN COMPONENTE DE CALCULADORA DEPENDIENDO DEL ID QUE RECIBE ESTE COMPONENTE
+  //calc_tendria_central
+  const renderComponent = () => {
+    switch (id_seccion) {
+      case 0:
+        return (
+          <Calc_tendria_central
+            idseccion={id_seccion}
+            tituloCal={concepto.title}
+          />
+        );
+      //Calc_Bernoulli
+      case 1:
+        return (
+          <Calc_Bernoulli idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+      //Calc_Poisson
+      case 2:
+        return (
+          <Calc_Poisson idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+        case 3:
+        return (
+          <Calc_Binomial idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+        case 4:
+        return (
+          <Calc_Normal idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+        case 5:
+        return (
+          <Calc_Bayes idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+        case 6:
+        return (
+          <Frecuencia idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+      default:
+        return null; // Otra opción por defecto si ninguna condición es verdadera
+    }
+  };
+>>>>>>> Stashed changes
   return (
     <Card className="h-full w-full mt-7">
       <>

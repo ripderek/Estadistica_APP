@@ -66,4 +66,27 @@ export const tasks = [
             { tipo: "Probabilidad de la evidencia dada la hipótesis (P(B|A))", definition: "Esto describe cuán probable es observar la nueva evidencia B si el evento A es verdadero." },
         ]
     },
+    {
+        id: 6,
+        title: "Tabla de frecuencia",
+        description: "Una tabla de frecuencias es una herramienta estadística que organiza y resume la información sobre la distribución de datos. Consiste en una estructura de columnas que muestra las distintas categorías o valores de una variable, junto con el número de veces que cada categoría ocurre en un conjunto de datos. Esta tabla proporciona una visión general y ordenada de la frecuencia con la que aparecen los valores en una muestra o población, lo que permite analizar patrones, identificar tendencias y extraer conclusiones significativas.",
+        description2: "Es una herramienta fundamental en el análisis estadístico y es utilizada en diversos campos, como la investigación científica, el marketing, la economía y muchas otras disciplinas que requieren el estudio e interpretación de datos cuantitativos.",
+        definiciones: [
+            { tipo: "Valores de la variable:", definition: "Son los diferentes valores que toma la variable en el estudio." },
+            { tipo: "Frecuencia absoluta:", definition: "Es la cantidad de veces que aparece el valor en el estudio. La sumatoria de las frecuencias absolutas es igual al número de datos." },
+            { tipo: "Frecuencia absoluta acumulada:", definition: "Es el acumulado o suma de las frecuencias absolutas, indica cuantos datos se van contando hasta ese momento o cuántos datos se van reportando." },
+            { tipo: "Frecuencia relativa:", definition: "Es la fracción o proporción de elementos que pertenecen a una clase o categoría. Se calcula dividiendo la frecuencia absoluta entre el número de datos del estudio." },
+            { tipo: "Frecuencia relativa acumulada:", definition: "Es la proporción de datos respecto al total que se han reportado hasta ese momento. Es la suma de las frecuencias relativas, y se puede calcular también dividiendo la frecuencia acumulada entre el número de datos del estudio." },
+        ],
+        links_youtube: [
+            { video: "Tabla de Frecuencias para Datos no Agrupados - Ejercicios Resueltos", link: "https://www.youtube.com/watch?v=iPEt789ewVM", miniatura: "/img/Home/frecuencia1.jpg" },
+            //aca copias y pegas si hay mas links
+            { video: "Tabla de frecuencias para datos agrupados y datos no agrupados (intervalos)", link: "https://www.youtube.com/watch?v=sOpQqDU5Swg", miniatura: "/img/Home/frecuencia2.jpg" }
+        ],
+        links_pdf: [
+            { pdf: "TABLAS DE FRECUENCIAS", link: "https://www.cesp.cl/Descargas/3Media/4tos%20Medios/Matematica/5.-%2011-09-2020/Gu%C3%ADa%20N%C2%B05%20-%20TABLAS%20DE%20FRECUENCIAS.pdf", miniatura: "/img/Home/pdf_frecuencia1.png" },
+            //aca copias y pegas si hay mas links
+            { pdf: "Tablas de frecuencias ", link: "https://www3.gobiernodecanarias.org/medusa/ecoblog/agilarm/files/2014/10/UNIDAD-1.pdf", miniatura: "/img/Home/pdf_frecuencia2.png" }
+        ]
+    },
 ];
