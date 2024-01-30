@@ -16,7 +16,7 @@ import { Result_Bernoulli } from "@/pages/Calc";
 
 export default function Calc_Bernoulli({ idseccion, tituloCal }) {
   //funcion para agrgar los datos skere modo diablo
-  const [numero, SetNumero] = useState(0);
+  const [numero, SetNumero] = useState(0.1);
   const [numero2, SetNumero2] = useState(0);
 
   // Función para agregar un nuevo dato al estado

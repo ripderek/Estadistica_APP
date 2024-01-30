@@ -4,6 +4,7 @@ import {
   UserPlusIcon,
   PlusIcon,
   ArrowRightCircleIcon,
+  FaceSmileIcon,
 } from "@heroicons/react/24/solid";
 import {
   Card,
@@ -32,9 +33,10 @@ import {
   Calc_Poisson,
   Calc_Binomial,
   Calc_Normal,
-    Calc_Bayes,
-  Frecuencia
+  Calc_Bayes,
+  Frecuencia,
 } from "@/pages/Calc";
+import { Asistente } from "@/pages/Asistente";
 
 //const TABLE_HEAD = ["Member", "Function", "Status", "Employed", ""];
 import { useEffect, useState } from "react";
@@ -77,9 +79,9 @@ export default function Conceptos({ id_seccion }) {
   const [openCalculadora, setOpenCalculadora] = useState(false);
   const toggleOpenCalculadora = () => setOpenCalculadora((cur) => !cur);
 
-
   //HACER UN SWITCH PARA RENDERIZAR UN COMPONENTE DE CALCULADORA DEPENDIENDO DEL ID QUE RECIBE ESTE COMPONENTE
   //calc_tendria_central
+
   const renderComponent = () => {
     switch (id_seccion) {
       case 0:
@@ -99,31 +101,33 @@ export default function Conceptos({ id_seccion }) {
         return (
           <Calc_Poisson idseccion={id_seccion} tituloCal={concepto.title} />
         );
-        case 3:
+      case 3:
         return (
           <Calc_Binomial idseccion={id_seccion} tituloCal={concepto.title} />
         );
-        case 4:
+      case 4:
         return (
           <Calc_Normal idseccion={id_seccion} tituloCal={concepto.title} />
         );
-        case 5:
-        return (
-          <Calc_Bayes idseccion={id_seccion} tituloCal={concepto.title} />
-        );
+      case 5:
+        return <Calc_Bayes idseccion={id_seccion} tituloCal={concepto.title} />;
 
-        case 6:
-        return (
-          <Frecuencia idseccion={id_seccion} tituloCal={concepto.title} />
-        );
+      case 6:
+        return <Frecuencia idseccion={id_seccion} tituloCal={concepto.title} />;
 
       default:
         return null; // Otra opción por defecto si ninguna condición es verdadera
     }
   };
-
+  //PARA EL ASISTENTE
+  const [openAsistente, setOpenAsistente] = useState(true);
+  const cerrarAsistente = () => setOpenAsistente(false);
   return (
     <Card className="h-full w-full mt-7">
+      {openAsistente && (
+        <Asistente cerrar={cerrarAsistente} id_seccion1={id_seccion} />
+      )}
+
       <>
         <CardHeader
           floated={false}
@@ -138,11 +142,20 @@ export default function Conceptos({ id_seccion }) {
                 className="font-bold"
               >
                 {concepto.title}
+                <Button
+                  onClick={() => setOpenAsistente(true)}
+                  variant="gradient"
+                  color="pink"
+                  className="w-auto rounded-xl p-2 ml-3"
+                >
+                  <FaceSmileIcon className="h-8 mx-auto" />
+                  Ayuda
+                </Button>
               </Typography>
             </div>
           </div>
         </CardHeader>
-        <CardBody className="overflow-scroll mt-0">
+        <CardBody className=" mt-0">
           {/* TEORIA */}
           <Button
             onClick={toggleOpen}
@@ -282,6 +295,7 @@ export default function Conceptos({ id_seccion }) {
       </>
 
       <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
+        {/* 
         <Typography variant="small" color="blue-gray" className="font-normal">
           Pagina 1 de 6
         </Typography>
@@ -293,6 +307,7 @@ export default function Conceptos({ id_seccion }) {
             Siguiente
           </Button>
         </div>
+        */}
       </CardFooter>
     </Card>
   );

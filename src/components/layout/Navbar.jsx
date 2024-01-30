@@ -63,9 +63,9 @@ export function Navbar_app({ user_name, titulo }) {
         <div className="capitalize">
           <Typography
             variant="h4"
-            color={sidenavColor === "dark" ? "black" : "white"}
+            color={fixedNavbar ? "black" : "deep-purple"}
           >
-            {titulo} sss
+            {titulo}
           </Typography>
         </div>
         <div className="flex items-center">

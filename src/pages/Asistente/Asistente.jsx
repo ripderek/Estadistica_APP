@@ -1,5 +1,4 @@
-
-import {useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Button,
   Dialog,
@@ -7,7 +6,9 @@ import {
   DialogBody,
   DialogFooter,
   Typography,
-  Stepper, Step, Tooltip
+  Stepper,
+  Step,
+  Tooltip,
 } from "@material-tailwind/react";
 import {
   CogIcon,
@@ -16,22 +17,17 @@ import {
 } from "@heroicons/react/24/outline";
 import { tasks } from "../../Data/Asistente";
 
+export default function Asistente({ cerrar, id_seccion1 }) {
+  //Estados para los pasos
+  const [activeStep, setActiveStep] = useState(0);
+  const [isLastStep, setIsLastStep] = useState(false);
+  const [isFirstStep, setIsFirstStep] = useState(false);
 
+  //almacenar el paso actual, por defecto es = 1
+  const [pasoClick, setPasoClick] = useState(1);
 
-
-export default function Asistente({cerrar, id_seccion1}) { 
-//Estados para los pasos 
-const [activeStep, setActiveStep] = useState(0);
-const [isLastStep, setIsLastStep] = useState(false);
-const [isFirstStep, setIsFirstStep] = useState(false);
-
-
-//almacenar el paso actual, por defecto es = 1
-const [pasoClick, setPasoClick] = useState(1);
-
-
-//OBTENER LOS PAOS DESDE EL ARCHIVO JS CON LOS PASOS CON EL MISMO ID
-const [concepto, setConcepto] = useState({
+  //OBTENER LOS PAOS DESDE EL ARCHIVO JS CON LOS PASOS CON EL MISMO ID
+  const [concepto, setConcepto] = useState({
     pasos: [],
   });
   const [load, setLoader] = useState(false);
@@ -45,7 +41,7 @@ const [concepto, setConcepto] = useState({
     setLoader(true);
     try {
       // Filtrar los datos con id === 0 y extraer título y
-       //concepto
+      //concepto
       const conceptoConIdCero = await tasks.find(
         (task) => task.id === id_seccion1
       );
@@ -64,13 +60,13 @@ const [concepto, setConcepto] = useState({
       setLoader(false);
     }
   };
-  //Obtener contenido del paso seleccionado 
+  //Obtener contenido del paso seleccionado
   const [contendido, setContenido] = useState([]);
   const ObtenerContenidoPaso = async (num_paso) => {
     setLoader(true);
     try {
       // Filtrar los datos con id === 0 y extraer título y
-       //concepto
+      //concepto
       const conceptoConIdCero = await concepto.pasos.find(
         (task) => task.paso === num_paso
       );
@@ -81,8 +77,8 @@ const [concepto, setConcepto] = useState({
       console.error("Error al obtener el contenido:", error);
       setLoader(false);
     }
-  }
-return (
+  };
+  return (
     <>
       <Dialog
         open={true}
@@ -92,16 +88,12 @@ return (
           unmount: { scale: 0.9, y: -100 },
         }}
       >
-        <DialogHeader>  <Typography
-                variant="h3"
-                color="deep-purple"
-                className="font-bold"
-              >
-                               {concepto.title}
-
-              </Typography>
-              
-              <Button
+        <DialogHeader>
+          {" "}
+          <Typography variant="h3" color="deep-purple" className="font-bold">
+            {concepto.title}
+          </Typography>
+          <Button
             color="red"
             variant="text"
             size="md"
@@ -112,53 +104,48 @@ return (
               X
             </Typography>
           </Button>
-              </DialogHeader>
+        </DialogHeader>
         <DialogBody>
-        <Typography
-                variant="h5"
-                color="black"
-                className="font-bold"
-              >
-                               {contendido.titulo}
-
-              </Typography>
-        {contendido.definition}
-        <img
-                              src={contendido.miniatura}
-                              alt=""
-                              className="h-64 mx-auto mt-4"
-                            />
+          <Typography variant="h5" color="black" className="font-bold">
+            {contendido.titulo}
+          </Typography>
+          {contendido.definition}
+          <img
+            src={contendido.miniatura}
+            alt=""
+            className="h-64 mx-auto mt-4"
+          />
         </DialogBody>
-        
+
         <DialogFooter>
-        <div className="w-full px-24 py-4">
-
-        {/* RECORRER LOS PASOS DEL MAP */}
-        <Stepper
-        activeStep={activeStep}
-        isLastStep={(value) => setIsLastStep(value)}
-        isFirstStep={(value) => setIsFirstStep(value)}
-        
-      >
-        {concepto.pasos &&
-                    concepto.pasos.length !== 0 &&
-                    concepto.pasos.map((item, itemIndex) => (
-
-
-                        <Step onClick={() => (setActiveStep(item.paso-1),ObtenerContenidoPaso(item.paso))} className="cursor-pointer">
-                        <Typography
-                          variant="h6"
-                          color={activeStep === item.paso ? "white" : "gray"}
-                        >
-                          {item.paso}
-                        </Typography>
-                      </Step>
-                    ))}
-
-        </Stepper>
-    </div>
+          <div className="w-full px-24 py-4">
+            {/* RECORRER LOS PASOS DEL MAP */}
+            <Stepper
+              activeStep={activeStep}
+              isLastStep={(value) => setIsLastStep(value)}
+              isFirstStep={(value) => setIsFirstStep(value)}
+            >
+              {concepto.pasos &&
+                concepto.pasos.length !== 0 &&
+                concepto.pasos.map((item, itemIndex) => (
+                  <Step
+                    onClick={() => (
+                      setActiveStep(item.paso - 1),
+                      ObtenerContenidoPaso(item.paso)
+                    )}
+                    className="cursor-pointer"
+                  >
+                    <Typography
+                      variant="h6"
+                      color={activeStep === item.paso ? "white" : "gray"}
+                    >
+                      {item.paso}
+                    </Typography>
+                  </Step>
+                ))}
+            </Stepper>
+          </div>
         </DialogFooter>
-        
       </Dialog>
     </>
   );
