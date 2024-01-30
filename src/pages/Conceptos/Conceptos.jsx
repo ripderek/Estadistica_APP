@@ -25,14 +25,17 @@ import {
 } from "@material-tailwind/react";
 import { Dialog_Error, Loader, Notification } from "@/widgets"; //Importar el componente
 import { tasks } from "../../Data/Conceptos";
+
 import {
   Calc_tendria_central,
   Calc_Bernoulli,
   Calc_Poisson,
   Calc_Binomial,
   Calc_Normal,
-  Calc_Bayes
+    Calc_Bayes,
+  Frecuencia
 } from "@/pages/Calc";
+
 //const TABLE_HEAD = ["Member", "Function", "Status", "Employed", ""];
 import { useEffect, useState } from "react";
 export default function Conceptos({ id_seccion }) {
@@ -74,6 +77,7 @@ export default function Conceptos({ id_seccion }) {
   const [openCalculadora, setOpenCalculadora] = useState(false);
   const toggleOpenCalculadora = () => setOpenCalculadora((cur) => !cur);
 
+
   //HACER UN SWITCH PARA RENDERIZAR UN COMPONENTE DE CALCULADORA DEPENDIENDO DEL ID QUE RECIBE ESTE COMPONENTE
   //calc_tendria_central
   const renderComponent = () => {
@@ -107,10 +111,17 @@ export default function Conceptos({ id_seccion }) {
         return (
           <Calc_Bayes idseccion={id_seccion} tituloCal={concepto.title} />
         );
+
+        case 6:
+        return (
+          <Frecuencia idseccion={id_seccion} tituloCal={concepto.title} />
+        );
+
       default:
         return null; // Otra opción por defecto si ninguna condición es verdadera
     }
   };
+
   return (
     <Card className="h-full w-full mt-7">
       <>

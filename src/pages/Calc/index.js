@@ -9,4 +9,6 @@ export { default as Result_Bernoulli } from '@/pages/Calc/Result_Bernoulli'
 export { default as Result_Poisson } from '@/pages/Calc/Result_Poisson'
 export {default as Result_Binomial} from '@/pages/Calc/Result_Binomial'
 
+export {default as Frecuencia} from '@/pages/Calc/Frecuencia'
+export {default as ResultadoFrecuencias } from "@/pages/Calc/Result_Frecuencia"
 ///Result_Poisson.
