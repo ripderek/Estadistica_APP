@@ -21,7 +21,18 @@ export const tasks = [
             { pdf: "MEDIDAS DE TENDENCIA CENTRAL", link: "https://uptprobest.files.wordpress.com/2008/02/act-04-medidas-tendencia-central.pdf", miniatura: "/img/Home/pdf_medidas1.png" },
             //aca copias y pegas si hay mas links
             { pdf: "MEDIDAS DE TENDENCIA CENTRAL PARA DATOS AGRUPADOS", link: "https://www.cesp.cl/Descargas/3Media/4tos%20Medios/Matematica/7.-%2023-10-2020/Gu%C3%ADa%20N%C2%B07%20-%20MTC%20DATOS%20AGRUPADOS.pdf", miniatura: "/img/Home/pdf_medidas2.png" }
+        ],
+        //REFERENCIAS 
+        referencias: [
+            { id: "[1]", referencia: "Vive UNIR, ¿Qué son las medidas de tendencia central y para qué sirven?, Universidad Virtual.| UNIR Colombia (accessed Jan. 30, 2024). Disponible en :https://colombia.unir.net/actualidad-unir/medidas-tendencia-central/" },
+        ],
+        Temas:[
+            {id:'Medidas de Dispersión'},
+            {id:'Representaciones Gráficas de Datos'},
+            {id:'Probabilidad y Distribuciones de Probabilidad'},
+            {id:'Correlación y Regresión'},
         ]
+        
     },
     //Nueva fila
     {
@@ -36,6 +47,16 @@ export const tasks = [
         links_pdf: [
             { pdf: "Ensayos de Bernoulli", link: "https://www.cimat.mx/~jortega/MaterialDidactico/probabilidad17/Tema2.pdf", miniatura: "/img/Home/pdf_bernouli.png" },
             //aca copias y pegas si hay mas links
+        ],
+        referencias: [
+            { id: "[1]", referencia: "Distribución de Bernoulli | Matemóvil, MateMovil, Jun. 20, 2020.(accessed Jan. 30, 2024).. Disponible en :https://matemovil.com/distribucion-de-bernoulli/" },
+        ],
+        Temas:[
+            {id:'Distribución Binomial'},
+            {id:'Distribuciones Continuas'},
+            {id:'Teorema del Límite Central'},
+            {id:'Técnicas de Estimación'},
+
         ]
     },
     //PUEDES AGREGAR MAS FILAS AQUI VALESKA
@@ -58,6 +79,16 @@ export const tasks = [
             { pdf: "La distribución Poisson", link: "https://riunet.upv.es/bitstream/handle/10251/7937/Distribucion%20Poisson.pdf", miniatura: "/img/Home/pdf_poisson1.png" },
             //aca copias y pegas si hay mas links
             { pdf: "La distribución de Poisson", link: "https://www.uv.es/zuniga/09_La_distribucion_de_Poisson.pdf", miniatura: "/img/Home/pdf_poisson2.png" }
+        ],
+        referencias: [
+            { id: "[1]", referencia: "Distribución de Poisson | Matemóvil, MateMovil, Jun. 20, 2020.(accessed Jan. 30, 2024).. Disponible en :https://matemovil.com/distribucion-de-bernoulli/" },
+        ],
+        Temas:[
+            {id:'Distribución Exponencia'},
+            {id:'Cadenas de Markov'},
+            {id:'Análisis de Series Temporales'},
+            {id:'Modelos de Regresión'},
+
         ]
     },
     {
@@ -80,6 +111,16 @@ export const tasks = [
             { pdf: "La distribución binomial", link: "https://riunet.upv.es/bitstream/handle/10251/7936/Distribucion%20binomial.pdf", miniatura: "/img/Home/pdf_binomial1.png" },
             //aca copias y pegas si hay mas links
             { pdf: "Distribución binomial", link: "https://institutoclaret.cl/wp-content/uploads/2020/11/PPT-Distribuci%C3%B3n-Binomial.pdf", miniatura: "/img/Home/pdf_binomial2.png" }
+        ],
+        referencias: [
+            { id: "[1]", referencia: "Distribución Binomial | Matemóvil, MateMovil, Jun. 20, 2020.(accessed Jan. 30, 2024). Disponible en :https://matemovil.com/distribucion-de-bernoulli/" },
+        ],
+        Temas:[
+            {id:'Distribución Exponencia'},
+            {id:'Cadenas de Markov'},
+            {id:'Análisis de Series Temporales'},
+            {id:'Modelos de Regresión'},
+
         ]
 
     },
@@ -102,6 +143,16 @@ export const tasks = [
             { pdf: "La distribución normal", link: "https://www.ugr.es/~rruizb/cognosfera/sala_de_estudio/estadistica/distribucionnormal2.pdf", miniatura: "/img/Home/pdf_normal1.png" },
             //aca copias y pegas si hay mas links
             { pdf: "La distribución Normal", link: "https://m.riunet.upv.es/bitstream/handle/10251/7939/La%20distribucion%20Normal.pdf?sequence=3&isAllowed=y", miniatura: "/img/Home/pdf_normal2.png" }
+        ],
+        referencias: [
+            { id: "[1]", referencia: "Distribución Normal | Matemóvil, MateMovil, Jun. 20, 2020.(accessed Jan. 30, 2024).. Disponible en :https://matemovil.com/distribucion-de-bernoulli/" },
+        ],
+        Temas:[
+            {id:'Distribución Exponencia'},
+            {id:'Cadenas de Markov'},
+            {id:'Análisis de Series Temporales'},
+            {id:'Modelos de Regresión'},
+
         ]
     },
 
@@ -125,6 +176,16 @@ export const tasks = [
             { pdf: "TEOREMA DE BAYES ", link: "http://administracion.universidadipei.com/wp-content/uploads/2020/08/A2.pdf", miniatura: "/img/Home/pdf_bayes1.png" },
             //aca copias y pegas si hay mas links
             { pdf: "Introducción a la Estadística Bayesiana", link: "https://ddd.uab.cat/pub/tfg/2015/137782/TFG_DailosCastellanoMarrero.pdf", miniatura: "/img/Home/pdf_bayes2.png" }
+        ],
+        referencias: [
+            { id: "[1]", referencia: "Teorema de Bayes | Matemóvil, MateMovil, Jun. 20, 2020.(accessed Jan. 30, 2024).. Disponible en :https://matemovil.com/distribucion-de-bernoulli/" },
+        ],
+        Temas:[
+            {id:'Distribución Exponencia'},
+            {id:'Cadenas de Markov'},
+            {id:'Análisis de Series Temporales'},
+            {id:'Modelos de Regresión'},
+
         ]
     },
     {
@@ -148,6 +209,16 @@ export const tasks = [
             { pdf: "TABLAS DE FRECUENCIAS", link: "https://www.cesp.cl/Descargas/3Media/4tos%20Medios/Matematica/5.-%2011-09-2020/Gu%C3%ADa%20N%C2%B05%20-%20TABLAS%20DE%20FRECUENCIAS.pdf", miniatura: "/img/Home/pdf_frecuencia1.png" },
             //aca copias y pegas si hay mas links
             { pdf: "Tablas de frecuencias ", link: "https://www3.gobiernodecanarias.org/medusa/ecoblog/agilarm/files/2014/10/UNIDAD-1.pdf", miniatura: "/img/Home/pdf_frecuencia2.png" }
+        ],
+        referencias: [
+            { id: "[1]", referencia: "Tablas de frecuencias, ejercicios resueltos | Matemóvil, MateMovil, Aug. 16, 2018. (accessed Jan. 30, 2024).. Disponible en : https://matemovil.com/tablas-de-frecuencias-ejercicios-resueltos/" },
+        ],
+        Temas:[
+            {id:'Medidas de Tendencia Central'},
+            {id:'Medidas de Dispersión'},
+            {id:'Representaciones Gráficas'},
+            {id:'Probabilidad'},
+
         ]
     },
 ];

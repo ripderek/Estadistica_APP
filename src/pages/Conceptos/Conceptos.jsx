@@ -281,7 +281,59 @@ export default function Conceptos({ id_seccion }) {
         </CardBody>
       </>
 
+<<<<<<< Updated upstream
       <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
+=======
+      <CardFooter className=" items-center justify-between border-t border-blue-gray-50 p-4">
+      <Typography variant="h3" color="black" className="mt-6">
+                  Referencias
+                </Typography>
+      <table className="w-auto table-auto text-left">
+        <thead>
+         
+        </thead>
+        <tbody>
+          {concepto.referencias &&
+                    concepto.referencias.length !== 0 &&
+                    concepto.referencias.map((item, itemIndex) => {
+            const isLast = itemIndex === concepto.referencias.length - 1;
+            const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+ 
+            return (
+              <tr key={item.id}>
+                <td className={classes}>
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    {item.id}
+                  </Typography>
+                </td>
+                <td className={classes}>
+                  
+                    {item.referencia}
+                </td>
+                
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <Typography variant="h3" color="black" className="mt-6">
+                  Temas recomendados
+                </Typography>
+                {concepto.Temas &&
+                    concepto.Temas.length !== 0 &&
+                    concepto.Temas.map((item, itemIndex) => (
+                      <div key={itemIndex} className="ml-4 mt-2">
+                       
+                        <li className="text-lg">{item.id}</li>
+                      </div>
+                    ))}
+
+        {/* 
+>>>>>>> Stashed changes
         <Typography variant="small" color="blue-gray" className="font-normal">
           Pagina 1 de 6
         </Typography>
