@@ -1,0 +1,1 @@
+Esta carpeta contiene todas las calculadoras a renderizar dentro del componente conceptos.jsx el cual envia el id y renderiza segun el id 

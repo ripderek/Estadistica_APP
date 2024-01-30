@@ -49,18 +49,19 @@ export function Configurator() {
   const [stars, setStars] = useState(0);
 
   const sidenavColors = {
-    white: "from-gray-100 to-gray-100 border-gray-200",
-    dark: "from-black to-black border-gray-200",
+    //white: "from-gray-100 to-gray-100 border-gray-200",
+   // dark: "from-black to-black border-gray-200",
     green: "from-lime-600 to-lime-600",
     orange: "from-orange-400 to-orange-600",
     red: "from-red-400 to-red-600",
     pink: "from-pink-400 to-pink-600",
+    purple: "from-purple-500 to-purple-500"
   };
 
   return (
     <aside
       className={`fixed top-0 right-0 z-50 h-screen w-96 overflow-y-scroll bg-white px-2.5 shadow-lg transition-transform duration-300 ${
-        openConfigurator ? "translate-x-0" : "translate-x-96"
+        openConfigurator ? "translate-x-0" : "translate-x-96 "
       }`}
     >
       <div className="flex items-start justify-between px-6 pt-8 pb-6 ">
@@ -142,6 +143,7 @@ export function Configurator() {
             />
           </div>
           <hr />
+          {/* 
           <div className="my-8 flex flex-col gap-4">
             <a target="_black">
               <Button variant="gradient" fullWidth>
@@ -149,6 +151,8 @@ export function Configurator() {
               </Button>
             </a>
           </div>
+*/}
+
         </div>
         <div className="text-center">
           {/*

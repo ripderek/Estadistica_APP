@@ -9,13 +9,34 @@ export const tasks = [
             { tipo: "Media", definition: "Suma de todos los valores de datos dividida por el número total de elementos. Se necesita un conjunto de números para calcular la media." },
             { tipo: "Mediana", definition: "El valor medio en un conjunto de datos ordenados. Si el número total de datos es impar, es el número central; si es par, es el promedio de los dos números centrales. Se requiere el conjunto completo de datos, preferiblemente ya ordenados." },
             { tipo: "Moda", definition: "El valor o valores que aparecen con más frecuencia en un conjunto de datos. Dependiendo de la naturaleza de los datos, puede haber una moda, más de una, o ninguna (en caso de que todos los datos aparezcan con la misma frecuencia). Se necesita el conjunto de datos para identificar la moda." }
+        ],
+        //aqui van los links de youtube 
+        links_youtube: [
+            { video: "MEDIA, MODA Y MEDIANA Super facil | Medidas de tendencia central", link: "https://www.youtube.com/watch?v=0DA7Wtz1ddg", miniatura: "/img/Home/video_medidas1.jpg" },
+            //aca copias y pegas si hay mas links
+            { video: "Media mediana y moda | Datos sin agrupar", link: "https://www.youtube.com/watch?v=fOuRqk1nzgY", miniatura: "/img/Home/video_medidas2.jpg" }
+        ],
+        //aqui van los links del pdf
+        links_pdf: [
+            { pdf: "MEDIDAS DE TENDENCIA CENTRAL", link: "https://uptprobest.files.wordpress.com/2008/02/act-04-medidas-tendencia-central.pdf", miniatura: "/img/Home/pdf_medidas1.png" },
+            //aca copias y pegas si hay mas links
+            { pdf: "MEDIDAS DE TENDENCIA CENTRAL PARA DATOS AGRUPADOS", link: "https://www.cesp.cl/Descargas/3Media/4tos%20Medios/Matematica/7.-%2023-10-2020/Gu%C3%ADa%20N%C2%B07%20-%20MTC%20DATOS%20AGRUPADOS.pdf", miniatura: "/img/Home/pdf_medidas2.png" }
         ]
     },
     //Nueva fila
     {
         id: 1,
         title: "Distribución de Bernoulli",
-        description: "La distribución de Bernoulli es una distribución de probabilidad discreta de un experimento de Bernoulli, un experimento que tiene exactamente dos resultados posibles, 'éxito' (con probabilidad p) y 'fracaso' (con probabilidad 1-p). Para hacer el cálculo de la distribución de Bernoulli, necesitamos ingrese el valor de 'p' y luego mostrarle las probabilidades de éxito y fracaso."
+        description: "La distribución de Bernoulli es una distribución de probabilidad discreta de un experimento de Bernoulli, un experimento que tiene exactamente dos resultados posibles, 'éxito' (con probabilidad p) y 'fracaso' (con probabilidad 1-p). Para hacer el cálculo de la distribución de Bernoulli, necesitamos ingrese el valor de 'p' y luego mostrarle las probabilidades de éxito y fracaso.",
+        links_youtube: [
+            { video: "Distribución de Bernoulli | Introducción y ejercicio resuelto", link: "https://www.youtube.com/watch?v=olGbPzIGJ4M", miniatura: "/img/Home/video_bernouli1.jpg" },
+            //aca copias y pegas si hay mas links
+            { video: "Distribución de Bernoulli", link: "https://www.youtube.com/watch?v=y8I9N2r2t10", miniatura: "/img/Home/video_bernouli1.jpg" }
+        ],
+        links_pdf: [
+            { pdf: "Ensayos de Bernoulli", link: "https://www.cimat.mx/~jortega/MaterialDidactico/probabilidad17/Tema2.pdf", miniatura: "/img/Home/pdf_bernouli.png" },
+            //aca copias y pegas si hay mas links
+        ]
     },
     //PUEDES AGREGAR MAS FILAS AQUI VALESKA
     {
@@ -27,6 +48,16 @@ export const tasks = [
             { tipo: "Tasa media de éxito (λ)", definition: "También conocida como 'parámetro de tasa', representa el número promedio de veces que se espera que ocurra un evento en el intervalo especificado. Por ejemplo, si se estudia la cantidad de llamadas que recibe una central telefónica por hora, λ sería el promedio de llamadas esperadas por hora." },
             { tipo: "Número de eventos (k", definition: "Este es el número específico de eventos para el cual el usuario desea calcular la probabilidad. En el contexto de la central telefónica, k sería el número de llamadas para el que se desea encontrar la probabilidad en una hora dada." },
 
+        ],
+        links_youtube: [
+            { video: "Distribución de Poisson | Ejercicios resueltos | Intro", link: "https://www.youtube.com/watch?v=PMX75m4-s9A", miniatura: "/img/Home/video_poisson1.jpg" },
+            //aca copias y pegas si hay mas links
+            { video: "Distribución de Poisson | Teoría y ejercicio resuelto", link: "https://www.youtube.com/watch?v=hmAfNpD7Eps", miniatura: "/img/Home/Video_poisson2.jpg" }
+        ],
+        links_pdf: [
+            { pdf: "La distribución Poisson", link: "https://riunet.upv.es/bitstream/handle/10251/7937/Distribucion%20Poisson.pdf", miniatura: "/img/Home/pdf_poisson1.png" },
+            //aca copias y pegas si hay mas links
+            { pdf: "La distribución de Poisson", link: "https://www.uv.es/zuniga/09_La_distribucion_de_Poisson.pdf", miniatura: "/img/Home/pdf_poisson2.png" }
         ]
     },
     {
@@ -39,6 +70,16 @@ export const tasks = [
             { tipo: "Probabilidad de éxito en un solo ensayo (p)", definition: "Es la probabilidad de que ocurra un éxito en un ensayo individual. Debe ser un valor entre 0 y 1, donde 0 indica imposibilidad y 1 indica certeza." },
             { tipo: "Número de éxitos (k) deseados", definition: "El número específico de éxitos que el usuario desea evaluar dentro del número total de ensayos." },
 
+        ],
+        links_youtube: [
+            { video: "Distribución binomial | Ejercicios resueltos | Introducción", link: "https://www.youtube.com/watch?v=-XxZGvNClkg", miniatura: "/img/Home/video_binomial1.jpg" },
+            //aca copias y pegas si hay mas links
+            { video: "Distribución Binomial | Explicación y ejercicio resuelto", link: "https://www.youtube.com/watch?v=GvqsxC8UL3I", miniatura: "/img/Home/video_binomial2.jpg" }
+        ],
+        links_pdf: [
+            { pdf: "La distribución binomial", link: "https://riunet.upv.es/bitstream/handle/10251/7936/Distribucion%20binomial.pdf", miniatura: "/img/Home/pdf_binomial1.png" },
+            //aca copias y pegas si hay mas links
+            { pdf: "Distribución binomial", link: "https://institutoclaret.cl/wp-content/uploads/2020/11/PPT-Distribuci%C3%B3n-Binomial.pdf", miniatura: "/img/Home/pdf_binomial2.png" }
         ]
 
     },
@@ -51,6 +92,16 @@ export const tasks = [
             { tipo: "Media (μ)", definition: "Es el valor promedio de la distribución y se sitúa en el centro de la curva de la campana. Representa el punto donde se esperan los valores." },
             { tipo: "Desviación estándar (σ)", definition: "Mide la dispersión de los datos respecto a la media. Una σ más grande indica un mayor esparcimiento de los datos; una más pequeña señala que los datos están más agrupados alrededor de la media." },
             { tipo: "Valor de X", definition: "Es el valor específico para el cual deseas calcular la probabilidad de ocurrencia. En el contexto de la distribución normal, estamos interesados en calcular la probabilidad de que la variable aleatoria sea menor que X, es decir, P(X < x)." },
+        ],
+        links_youtube: [
+            { video: "DISTRIBUCIÓN NORMAL desde CERO | 2º bachillerato", link: "https://www.youtube.com/watch?v=2v_0AmKIuAA", miniatura: "/img/Home/video_normal1.jpg" },
+            //aca copias y pegas si hay mas links
+            { video: "DISTRIBUCIÓN NORMAL | INTRODUCCIÓN Desde Cero (Profesor Claudio)", link: "https://www.youtube.com/watch?v=c7NXmhQ--LE", miniatura: "/img/Home/video_normal2.jpg" }
+        ],
+        links_pdf: [
+            { pdf: "La distribución normal", link: "https://www.ugr.es/~rruizb/cognosfera/sala_de_estudio/estadistica/distribucionnormal2.pdf", miniatura: "/img/Home/pdf_normal1.png" },
+            //aca copias y pegas si hay mas links
+            { pdf: "La distribución Normal", link: "https://m.riunet.upv.es/bitstream/handle/10251/7939/La%20distribucion%20Normal.pdf?sequence=3&isAllowed=y", miniatura: "/img/Home/pdf_normal2.png" }
         ]
     },
 
@@ -64,6 +115,16 @@ export const tasks = [
             { tipo: "Probabilidad a posteriori (P(A|B))", definition: "Es la probabilidad revisada del evento A después de tomar en cuenta la nueva evidencia B. Este es el objetivo principal del cálculo de Bayes: entender cómo cambia nuestra creencia en la luz de nueva información." },
             { tipo: "Probabilidad de la evidencia (P(B))", definition: "La probabilidad del evento B, que es la nueva evidencia o información que estamos considerando." },
             { tipo: "Probabilidad de la evidencia dada la hipótesis (P(B|A))", definition: "Esto describe cuán probable es observar la nueva evidencia B si el evento A es verdadero." },
+        ],
+        links_youtube: [
+            { video: "Teorema de Bayes | Introducción", link: "https://www.youtube.com/watch?v=bDfCURXoKkU", miniatura: "/img/Home/video_bayes1.jpg" },
+            //aca copias y pegas si hay mas links
+            { video: "Teorema de Bayes - Probabilidades - Ejercicios Resueltos", link: "https://www.youtube.com/watch?v=CP4ToX5Tyvw", miniatura: "/img/Home/video_bayes2.jpg" }
+        ],
+        links_pdf: [
+            { pdf: "TEOREMA DE BAYES ", link: "http://administracion.universidadipei.com/wp-content/uploads/2020/08/A2.pdf", miniatura: "/img/Home/pdf_bayes1.png" },
+            //aca copias y pegas si hay mas links
+            { pdf: "Introducción a la Estadística Bayesiana", link: "https://ddd.uab.cat/pub/tfg/2015/137782/TFG_DailosCastellanoMarrero.pdf", miniatura: "/img/Home/pdf_bayes2.png" }
         ]
     },
     {
